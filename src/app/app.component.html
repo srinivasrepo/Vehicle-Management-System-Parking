@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+ <!--Brand & image-->
+ <a href="" class="navbar-brand">
+   <img src="../assets/car4.png" width="40px" alt="">
+ </a>
+
+ <!--Toggler or Collapsable button-->
+ <button class="navbar-toggler" type="button" data-toggle="collapse"  data-target="#collapsableNavbar">
+   <span class="navbar-toggler-icon"></span>
+ </button>
+
+ <!--Navbar Links-->
+ <div class="collapse navbar-collapse justify-content-end" id="collapsableNavbar">
+
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="home"><b>Home</b></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="aboutus" ><b>About Us</b></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="contactus"><b>Contact US</b></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="login"><b>Log In</b></a>
+    </li>
+  </ul>
+ </div>
+</nav>
+<router-outlet></router-outlet>
+<!-- <app-home></app-home> -->

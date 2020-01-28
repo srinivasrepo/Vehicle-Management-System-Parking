@@ -1,0 +1,24 @@
+<h4 style="color: rgb(4, 34, 4);">AVAILABLE EMPLOYEE DETAILS </h4>
+<table class="table ">
+    <thead class="bg-dark text-light">
+        <th>Emp_id</th>
+        <th>Emp_Name</th>
+        <th>Emp_Vehicle_No.</th>
+        <th>Email_id</th>
+        <th>Contact_No.</th>
+        <th>City</th>
+        
+    </thead>
+    
+    <tr *ngFor="let y of getEmpData">
+        <td>{{y.id}}</td>
+        <td>{{y.name}}</td>
+        <td>{{y.employeevehicleno}}</td>
+        <td>{{y.email}}</td>
+        <td>{{y.contact}}</td>
+        <td>{{y.city}}</td>
+        
+        
+        
+    </tr>
+</table>

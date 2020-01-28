@@ -1,0 +1,116 @@
+<!-- model button -->
+<h6 style="color:rgb(4, 34, 4);"><button data-target="#adds" data-toggle ="modal" class="btn btn-info">Add a new Safe Guard</button>
+    _CLICK TO ADD NEW SAFE-GUARD</h6>
+   
+   <!--model-->
+   <div class="modal" id="adds">
+        <div class="modal-dialog modal-m">
+            <div class="modal-content">
+                <div class="model-footer mt-2 mr-2 mb-0">
+                            <button class="close btn btn-danger btn-large" data-dismiss="modal">x</button>
+                </div>
+                <div class="model-body m-5">
+                        <h4>SAFE-GUARD REGISTRATION FORM</h4>
+                    <form #mod="ngForm" (ngSubmit)="SafeGuardData(mod.value)">
+                        
+                        <div class="form-group">
+                            <label for="sgn">Name</label>
+                            <input type="text" id="sgn" class="form-control" name="name" ngModel>
+                        </div>
+                        <div class="form-group">
+                            <label for="sgei">Email Id</label>
+                            <input type="email"id="sgei" class="form-control" name="emailid" ngModel>
+                        </div> 
+                         <div class="form-group">
+                            <label for="sgcn">Contact No.</label>
+                            <input type="number"id="sgcn" name="contactno" class="form-control" ngModel>
+                        </div>
+                        <div class="form-group">
+                            <label for="sgi">Safe-Guard Id</label>
+                            <input type="text"id="sgi" name="id" class="form-control" ngModel>
+                        </div>
+                        <div class="form-group">
+                            <label for="sgp">Safe-Guard Password</label>
+                            <input type="text"id="sgp" name="password" class="form-control" ngModel>
+                        </div>
+                        <div >
+                            <button class="btn btn-success" type="submit">Submit</button> 
+                        </div>                    
+                    </form>
+                </div>                
+            </div>
+       </div>
+   </div>
+   
+   
+   <br>
+   
+   <h4 style="color: rgb(4, 34, 4);">AVAILABLE SAFE-GUARD DETAILS </h4>
+   <table class="table ">
+       <thead class="bg-dark text-light">
+           <th>SafeGuard_Name</th>
+           <th>Email_id</th>
+           <th>Contact_No.</th>
+           <th>SafeGuard_Id</th>
+           <th>Password</th>
+           <th>Edit</th>
+           <th>Delete</th>
+       </thead>
+       
+       <tr *ngFor="let x of storeSafeguardData">
+           <td>{{x.name}}</td>
+           <td>{{x.emailid}}</td>
+           <td>{{x.contactno}}</td>
+           <td>{{x.id}}</td>
+           <td>{{x.password}}</td>
+           <td><button class="btn btn-warning"data-target="#add1" data-toggle="modal" (click)="edit(x)">Edit</button> </td>
+           <td><button class="btn btn-danger"(click)="deletesafeguard(x.id)">Delete</button> </td>
+           
+           
+       </tr>
+   </table>
+
+   
+
+<!--model-->
+<div class="modal" id="add1">
+    <div class="modal-dialog modal-m">
+        <div class="modal-content">
+            <div class="model-footer mt-2 mr-2 mb-0">
+                <button class="close btn btn-danger btn-large" data-dismiss="modal">x</button>
+            </div>
+            <!-- <div class="model-header m-5"><h3>FILL EMPLOYEE DETAILS</h3></div> -->
+            <div class="model-body m-5">
+                <h4>SAFE-GUARD UPDATE FORM</h4> <!-- <h3>FILL DETAILS</h3> -->
+                <form #mod1="ngForm" (ngSubmit)="updatedData(mod1.value)">
+                    <div class="form-group">
+                        <label for="sgn">Name</label>
+                        <input type="text" id="sgn" class="form-control" name="name" [(ngModel)]="name" ngModel>
+                    </div>
+                    <div class="form-group">
+                        <label for="sgei">Email Id</label>
+                        <input type="email"id="sgei" class="form-control" name="emailid" [(ngModel)]="emailid" ngModel>
+                    </div> 
+                     <div class="form-group">
+                        <label for="sgcn">Contact No.</label>
+                        <input type="number"id="sgcn" name="contactno" class="form-control" [(ngModel)]="contactno"  ngModel>
+                    </div>
+                    <div class="form-group">
+                        <label for="sgi">Safe-Guard Id</label>
+                        <input type="text"id="sgi" name="id" [(ngModel)]="id"  class="form-control" ngModel>
+                    </div>
+                    <div class="form-group">
+                        <label for="sgp">Safe-Guard Password</label>
+                        <input type="text"id="sgp" name="password" [(ngModel)]="password"  class="form-control" ngModel>
+                    </div>
+                    <div >
+                        <button class="btn btn-success" type="submit">Submit</button> 
+                    </div>              
+                </form>
+            </div>
+            <!-- <div class="model-footer">
+            <button class="close btn btn-danger btn-large mb-4" data-dismiss="modal">Close</button>
+        </div> -->
+        </div>
+    </div>
+</div>

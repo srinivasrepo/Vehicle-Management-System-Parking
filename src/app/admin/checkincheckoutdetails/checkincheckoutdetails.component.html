@@ -1,0 +1,97 @@
+<h4 style="color: rgb(4, 34, 4);">CHECK-IN AND CHECK-OUT DETAILS ENTERED BY SAFE-GUARD</h4>
+    <table class="table ">
+            <thead class="bg-dark text-light">
+                <th>Emp_id</th>
+                <th>Emp_Name</th>
+                <th>Emp_Vehicle_No.</th>
+                <th>Email_id</th>
+                <th>Contact_No.</th>
+                <th>Date</th>
+                <th>Check_In</th>
+                <th>Check_Out</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            
+            </thead>
+            
+            <tr *ngFor="let c of storeCico">
+                <td>{{c.id}}</td>
+                <td>{{c.name}}</td>
+                <td>{{c.vehicleno}}</td>
+                <td>{{c.emailid}}</td>
+                <td>{{c.contactno}}</td>
+                <td>{{c.date}}</td>
+                <td>{{c.checkin}}</td>
+                <td>{{c.checkout}}</td>
+                <td><button type="submit" class="btn btn-warning" (click)=editCico(c) data-toggle="modal" data-target="#myModal">    <i class="fas fa-edit"></i>   </button></td>
+                <td><button type="submit" class="btn btn-danger" (click)=deleteCico(c) >   <i class="fas fa-trash-alt"></i>    </button></td>    
+            </tr>
+        </table>
+
+
+        
+<!-- The Modal -->
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">EDIT CHECK-IN & OUT</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body ml-5 mr-5 mb-5 mt-0">
+            
+            <form #check="ngForm" (ngSubmit)="updataCico(check.value)">
+                <div class="form-group">
+                    <label for="ei">Employee Id</label>
+                    <input type="text" class="form-control" id="ei" [(ngModel)]="id" name="id" >
+                </div>
+                <div class="form-group">
+                    <label for="en">Name</label>
+                    <input type="text" id="en" class="form-control" name="name" [(ngModel)]="name" >
+                </div>
+                <div class="form-group">
+                    <label for="evn">Vehicle No.</label>
+                    <input type="text" id="evn" class="form-control" name="vehicleno" [(ngModel)]="vehicleno">
+                </div>
+                <div class="form-group">
+                    <label for="ei">Email Id</label>
+                    <input type="email" id="ei" class="form-control" name="emailid" [(ngModel)]="emailid"
+                        ngModel>
+                </div>
+                <div class="form-group">
+                    <label for="c">Contact No.</label>
+                    <input type="number" id="c" class="form-control" name="contactno" [(ngModel)]="contactno">
+                </div>
+                <div class="form-group">
+                    <label for="ei">Date</label>
+                    <input type="date" id="d" class="form-control" name="date" [(ngModel)]="date" >
+                </div>
+                <div class="form-group">
+                    <label for="ci">Check-In</label>
+                    <input type="time" id="cn" name="checkin" class="form-control" [(ngModel)]="checkin">
+                </div>
+                <div class="form-group">
+                    <label for="co">Check-Out</label>
+                    <input type="time" id="co" name="checkout" class="form-control" [(ngModel)]="checkout">
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </div>
+
+
+            </form>
+
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+
+<body>
+    <!--model button-->
+    <h6 style="color:rgb(4, 34, 4);"><button data-target="#cico" data-toggle="modal" class="btn btn-info">Add
+            Check-In/Check-Out</button>
+        _CLICK TO ADD CHECK-IN & CHECK-OUT DETAILS</h6>
+    <br>
+    <!--model-->
+    <div class="modal" id="cico">
+        <div class="modal-dialog modal-m">
+            <div class="modal-content">
+                <div class="model-footer mt-2 mr-2 mb-0">
+                    <button class="close btn btn-danger btn-large" data-dismiss="modal">x</button>
+                </div>
+                <div class="model-body m-5">
+                    <h4>FILL CHECK-IN & OUT DETAILS</h4>
+                    <form #r="ngForm" (ngSubmit)="checkioData(r.value)">
+                        <div class="form-group">
+                            <label for="ei">Employee Id</label>
+                            <input type="text" class="form-control" id="ei" name="id" ngModel>
+                        </div>
+                        <div class="form-group">
+                            <label for="en">Name</label>
+                            <input type="text" id="en" class="form-control" name="name" ngModel>
+                        </div>
+                        <div class="form-group">
+                            <label for="evn">Vehicle No.</label>
+                            <input type="text" id="evn" class="form-control" name="vehicleno" ngModel>
+                        </div>
+                        <div class="form-group">
+                            <label for="ei">Email Id</label>
+                            <input type="email" id="ei" class="form-control" name="emailid" ngModel>
+                        </div>
+                        <div class="form-group">
+                            <label for="c">Contact No.</label>
+                            <input type="number" id="c" class="form-control" name="contactno" ngModel>
+                        </div>
+                        <div class="form-group">
+                            <label for="ei">Date</label>
+                            <input type="date" id="d" class="form-control" name="date" ngModel>
+                        </div>
+                        <div class="form-group">
+                            <label for="ci">Check-In</label>
+                            <input type="time" id="cn" name="checkin" class="form-control" ngModel>
+                        </div>
+                        <div class="form-group">
+                            <label for="co">Check-Out</label>
+                            <input type="time" id="co" name="checkout" class="form-control" ngModel>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </div>
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <h4 style="color: rgb(4, 34, 4);">ADD CHECK-IN AND CHECK-OUT DETAILS</h4>
+    <table class="table ">
+        <thead class="bg-dark text-light">
+            <th>Emp_id</th>
+            <th>Emp_Name</th>
+            <th>Emp_Vehicle_No.</th>
+            <th>Email_id</th>
+            <th>Contact_No.</th>
+            <th>Date</th>
+            <th>Check_In</th>
+            <th>Check_Out</th>
+            <th>Edit</th>
+
+        </thead>
+
+        <tr *ngFor="let c of storeCico">
+            <td>{{c.id}}</td>
+            <td>{{c.name}}</td>
+            <td>{{c.vehicleno}}</td>
+            <td>{{c.emailid}}</td>
+            <td>{{c.contactno}}</td>
+            <td>{{c.date}}</td>
+            <td>{{c.checkin}}</td>
+            <td>{{c.checkout}}</td>
+            <td><button type="submit" class="btn btn-warning" (click)=editCico(c) data-target=#add
+                    data-toggle="modal"><i class="fas fa-edit"></i></button></td>
+        </tr>
+    </table>
+
+
+    <!-- edit form -->
+    <div class="modal" id="add">
+        <div class="modal-dialog modal-m">
+            <div class="modal-content">
+                <div style="text-align-last: right; margin-top: 10px;margin-right: 10px;"> <button
+                        class="close btn btn-danger" data-dismiss="modal">
+                        <i class="fas fa-times-circle"></i>
+                    </button>
+                </div>
+
+                <div class="modal-body ml-5 mr-5 mb-5 mt-0">
+                    <h4>EDIT CHECK-IN & OUT DETAILS</h4>
+                    <form #check="ngForm" (ngSubmit)="updataCico(check.value)">
+                        <div class="form-group">
+                            <label for="ei">Employee Id</label>
+                            <input type="text" class="form-control" id="ei" [(ngModel)]="id" name="id" >
+                        </div>
+                        <div class="form-group">
+                            <label for="en">Name</label>
+                            <input type="text" id="en" class="form-control" name="name" [(ngModel)]="name" >
+                        </div>
+                        <div class="form-group">
+                            <label for="evn">Vehicle No.</label>
+                            <input type="text" id="evn" class="form-control" name="vehicleno" [(ngModel)]="vehicleno">
+                        </div>
+                        <div class="form-group">
+                            <label for="ei">Email Id</label>
+                            <input type="email" id="ei" class="form-control" name="emailid" [(ngModel)]="emailid"
+                                ngModel>
+                        </div>
+                        <div class="form-group">
+                            <label for="c">Contact No.</label>
+                            <input type="number" id="c" class="form-control" name="contactno" [(ngModel)]="contactno">
+                        </div>
+                        <div class="form-group">
+                            <label for="ei">Date</label>
+                            <input type="date" id="d" class="form-control" name="date" [(ngModel)]="date" >
+                        </div>
+                        <div class="form-group">
+                            <label for="ci">Check-In</label>
+                            <input type="time" id="cn" name="checkin" class="form-control" [(ngModel)]="checkin">
+                        </div>
+                        <div class="form-group">
+                            <label for="co">Check-Out</label>
+                            <input type="time" id="co" name="checkout" class="form-control" [(ngModel)]="checkout">
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </div>
+
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>

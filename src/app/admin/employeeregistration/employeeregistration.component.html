@@ -1,0 +1,142 @@
+<!--model button-->
+<h6 style="color:rgb(4, 34, 4);"><button data-target="#add" data-toggle="modal" class="btn btn-info">Add a new
+        Employee</button>
+    _CLICK TO ADD NEW EMPLOYEE</h6>
+
+<!--model-->
+<div class="modal" id="add">
+    <div class="modal-dialog modal-m">
+        <div class="modal-content">
+            <div class="model-footer mt-2 mr-2 mb-0">
+                <button class="close btn btn-danger btn-lg" data-dismiss="modal">x</button>
+            </div>
+            <!-- <div class="model-header m-5"><h3>FILL EMPLOYEE DETAILS</h3></div> -->
+            <div class="model-body m-5">
+                <h4>EMPLOYEE REGISTRATION FORM</h4> <!-- <h3>FILL DETAILS</h3> -->
+                <form #mod="ngForm" (ngSubmit)="empData(mod.value)">
+                    <div class="form-group">
+                        <label for="ei">Employee Id</label>
+                        <input type="text" class="form-control" id="ei" name="id" ngModel>
+                    </div>
+                    <div class="form-group">
+                        <label for="en">Name</label>
+                        <input type="text" id="en" class="form-control" name="name" ngModel>
+                    </div>
+                    <div class="form-group">
+                        <label for="evn">Vehicle No.</label>
+                        <input type="text" id="evn" class="form-control" name="employeevehicleno" ngModel>
+                    </div>
+                    <div class="form-group">
+                        <label for="ei">Email Id</label>
+                        <input type="email" id="ei" class="form-control" name="email" ngModel>
+                    </div>
+                    <div class="form-group">
+                        <label for="cn">Contact No.</label>
+                        <input type="number" id="cn" name="contact" class="form-control" ngModel>
+                    </div>
+                    <div class="form-group">
+                        <label for="c">City</label>
+                        <input type="text" id="c" name="city" class="form-control" ngModel>
+                    </div>
+                    <div>
+                        <button class="btn btn-success" type="submit">Submit</button>
+                    </div>
+
+
+                </form>
+            </div>
+            <!-- <div class="model-footer">
+            <button class="close btn btn-danger btn-large mb-4" data-dismiss="modal">Close</button>
+        </div> -->
+        </div>
+    </div>
+</div>
+
+
+<br>
+
+<h4 style="color: rgb(4, 34, 4);">AVAILABLE EMPLOYEE DETAILS </h4>
+<table class="table ">
+    <thead class="bg-dark text-light">
+        <th>Emp_id</th>
+        <th>Emp_Name</th>
+        <th>Emp_Vehicle_No.</th>
+        <th>Email_id</th>
+        <th>Contact_No.</th>
+        <th>City</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </thead>
+    <!-- y means obj .. for meaningful we usallyb take obj only, bcz of same row it executes edit fn -->
+    <tr *ngFor="let y of storeEmpData;let i=index">
+        <td>{{y.id}}</td>
+        <td>{{y.name}}</td>
+        <td>{{y.employeevehicleno}}</td>
+        <td>{{y.email}}</td>
+        <td>{{y.contact}}</td>
+        <td>{{y.city}}</td>
+        <td><button class="btn btn-warning" data-target="#add1" data-toggle="modal" (click)="edit(y)">Edit</button>
+        </td>
+        <td><button class="btn btn-danger" (click)="deleteEmp(y.id)">Delete</button> </td>
+
+
+    </tr>
+</table>
+
+
+
+
+
+
+
+
+<!--model-->
+<div class="modal" id="add1">
+    <div class="modal-dialog modal-m">
+        <div class="modal-content">
+            <div class="model-footer mt-2 mr-2 mb-0">
+                <button class="close btn btn-danger btn-large" data-dismiss="modal">x</button>
+            </div>
+            <!-- <div class="model-header m-5"><h3>FILL EMPLOYEE DETAILS</h3></div> -->
+            <div class="model-body m-5">
+                <h4>EMPLOYEE update FORM</h4> <!-- <h3>FILL DETAILS</h3> -->
+                <form #mod1="ngForm" (ngSubmit)="updatedData(mod1.value)">
+                    <div class="form-group">
+                        <label for="ei">Employee Id</label>
+                        <input type="text" class="form-control" [(ngModel)]="id" id="ei" name="id" ngModel>
+                    </div>
+                    <div class="form-group">
+                        <label for="en">Name</label>
+                        <input type="text" id="en" class="form-control" [(ngModel)]="name" name="name" ngModel>
+                    </div>
+                    <div class="form-group">
+                        <label for="evn">Vehicle No.</label>
+
+                        <input type="text" id="evn" class="form-control" [(ngModel)]="employeevehicleno"
+                            name="employeevehicleno" ngModel>
+                    </div>
+                    <div class="form-group">
+                        <label for="ei">Email Id</label>
+                        <input type="email" id="ei" class="form-control" [(ngModel)]="email" name="email" ngModel>
+                    </div>
+                    <div class="form-group">
+                        <label for="cn">Contact No.</label>
+                        <input type="number" id="cn" name="contact" [(ngModel)]="contact" class="form-control" ngModel>
+                    </div>
+                    <div class="form-group">
+                        <label for="c">City</label>
+                        <input type="text" id="c" name="city" [(ngModel)]="city" class="form-control" ngModel>
+                    </div>
+                    <div>
+                        <button class="btn btn-success" type="submit">Submit</button>
+                    </div>
+
+
+                </form>
+            </div>
+            <!-- <div class="model-footer">
+            <button class="close btn btn-danger btn-large mb-4" data-dismiss="modal">Close</button>
+        </div> -->
+        </div>
+    </div>
+</div>
