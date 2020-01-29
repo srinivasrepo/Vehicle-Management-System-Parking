@@ -22,7 +22,7 @@
                     <form #r="ngForm" (ngSubmit)="checkioData(r.value)">
                         <div class="form-group">
                             <label for="ei">Employee Id</label>
-                            <input type="text" class="form-control" id="ei" name="id" ngModel>
+                            <input type="text" class="form-control" id="empi" name="id" ngModel>
                         </div>
                         <div class="form-group">
                             <label for="en">Name</label>
@@ -110,7 +110,7 @@
                     <form #check="ngForm" (ngSubmit)="updataCico(check.value)">
                         <div class="form-group">
                             <label for="ei">Employee Id</label>
-                            <input type="text" class="form-control" id="ei" [(ngModel)]="id" name="id" >
+                            <input type="text" class="form-control" id="empi" [(ngModel)]="id" name="id" >
                         </div>
                         <div class="form-group">
                             <label for="en">Name</label>

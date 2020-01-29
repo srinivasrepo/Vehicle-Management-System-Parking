@@ -15,47 +15,52 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  // SendData(s){
-  //   console.log(s);
-  //   if(s.name=="admin" && s.password=="admin")
-  //   {
-  //     this.rs.navigateByUrl("admindashboard");
-  //     alert("Admin logged In Successfully");
-  //   }
-  //   else if(s.name=="safeguard" && s.password=="safeguard")
-  //   {
-  //     this.rs.navigate(["safeguarddashboard"]);
-  //     alert("Safeguard logged In Successfully");
-  //   }
-  //   else{
-  //     alert("Invalid username or password")"ng config -g cli.warnings.versionMismatch false"
-  //   }
-  // }
+  sendData(s){
+    console.log(s);
+    if(s.name==="admin" && s.password==="admin")
+    {
+      console.log("admin");
+      
+      this.rs.navigateByUrl("admindashboard");
+      // alert("Admin logged In Successfully");
+    }
+    else if(s.name==="safeguard" && s.password==="safeguard")
+    {      
+      console.log("safeguard");
+      this.rs.navigate(["safeguarddashboard"]);
+      // alert("Safeguard logged In Successfully");
+    }
+    else{
+      console.log("invalid username");
+      // alert("Invalid username or password")
+      // "ng config -g cli.warnings.versionMismatch false"
+    }
+  }
 
-
+}
   // sendData(obj) {
     //console.log("srinivas");
     // this.rs.navigateByUrl("/admindashboard")
     // } 
 
-    sendData(userObj){
-      console.log(userObj)
-      this.ls.loginUser(userObj).subscribe(res=>{
-        localStorage.setItem("token",sessionStorage["token"])
-          if (res["message"]=="invalid name"){
-            alert("Invalid User Name")
-          }
-          else if(res["messege"]=="invalid password"){
-            alert("Invalid Password")
-          }
-          else{
-            alert(res["message"]);
-            this.ls.isloggedIn=true;
-            localStorage.setItem("token",res["tokden"]);
-            this.rs.navigate(['/safeguardregistration'])
-            console.log("Logged In",this.ls.isloggedIn);
-          }
-      })
-    }
+//     sendData(userObj){
+//       console.log(userObj)
+//       this.ls.loginUser(userObj).subscribe(res=>{
+//         localStorage.setItem("token",sessionStorage["token"])
+//           if (res["message"]=="invalid name"){
+//             alert("Invalid User Name")
+//           }
+//           else if(res["messege"]=="invalid password"){
+//             alert("Invalid Password")
+//           }
+//           else{
+//             alert(res["message"]);
+//             this.ls.isloggedIn=true;
+//             localStorage.setItem("token",res["tokden"]);
+//             this.rs.navigate(['/safeguardregistration'])
+//             console.log("Logged In",this.ls.isloggedIn);
+//           }
+//       })
+//     }
 
-}
+// }
