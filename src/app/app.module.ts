@@ -13,6 +13,7 @@ import { LoginComponent } from './login/login.component';
 import { from } from 'rxjs';
 import { AdminModule } from './admin/admin.module';
 import { SafeguardModule } from './safeguard/safeguard.module';
+import { HashLocationStrategy, LocationStrategy } from "@angular/common";
 
 
 
@@ -32,7 +33,7 @@ import { SafeguardModule } from './safeguard/safeguard.module';
     AdminModule,
     SafeguardModule
   ],
-  providers: [],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
